@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medya Kütüphanesi - Yönetim Paneli</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Top Header Bar -->
+    <header class="admin-top-header">
+        <div class="top-header-left">
+            <div class="admin-logo">
+                <span class="logo-text">ZİFT STUDİO</span>
+            </div>
+            <button class="view-products-btn" onclick="window.location.href='/yonetim/urunler'">
+                <i class="fas fa-gem"></i>
+                Ürünler görüntüle
+            </button>
+        </div>
+        <div class="top-header-right">
+            <button class="header-icon-btn" title="Ara">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="/yonetim/dashboard" class="header-icon-btn" title="Ana Sayfa">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="user-profile">
+                <span class="profile-letter">Y</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <!-- Ürünler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-box"></i>
+                        <span>Ürünler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/urunler" class="nav-item" id="nav-all-products">
+                            <i class="fas fa-box"></i>
+                            <span>Tüm Ürünler</span>
+                        </a>
+                        <a href="#" class="nav-item" id="sidebarAddProductBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Ürün ekle</span>
+                        </a>
+                        <a href="/yonetim/kategoriler" class="nav-item" id="nav-categories">
+                            <i class="fas fa-list"></i>
+                            <span>Ürün Kategorileri</span>
+                        </a>
+                        <a href="/yonetim/kategori-siralama" class="nav-item" id="nav-category-sort">
+                            <i class="fas fa-sort"></i>
+                            <span>Kategori Sıralama</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bannerlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-images"></i>
+                        <span>Bannerlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/bannerlar" class="nav-item" id="nav-all-banners">
+                            <i class="fas fa-images"></i>
+                            <span>Tüm Bannerlar</span>
+                        </a>
+                        <a href="/yonetim/bannerlar/ekle" class="nav-item" id="addBannerBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Banner ekle</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İçerikler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-folder"></i>
+                        <span>İçerikler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/media" class="nav-item" id="nav-media">
+                            <i class="fas fa-image"></i>
+                            <span>Medya Kütüphanesi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menü Ayarları -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-cog"></i>
+                        <span>Menü Ayarları</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/firma-bilgileri" class="nav-item" id="nav-company-info">
+                            <i class="fas fa-building"></i>
+                            <span>Firma Bilgileri</span>
+                        </a>
+                        <a href="/yonetim/tasarim-secenekleri" class="nav-item" id="nav-design-options">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Tasarım Seçenekleri</span>
+                        </a>
+                        <a href="/yonetim/tanitim-alanlari" class="nav-item" id="nav-promotions">
+                            <i class="fas fa-play"></i>
+                            <span>Tanıtım Alanları</span>
+                        </a>
+                        <a href="/yonetim/sosyal-medya" class="nav-item" id="nav-social-media">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Sosyal Medya</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mesajlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-comment"></i>
+                        <span>Mesajlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/mesajlar" class="nav-item" id="nav-messages">
+                            <i class="fas fa-comments"></i>
+                            <span>Mesajlar</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content-header">
+                <h1 class="page-title">Ortam kitaplığı</h1>
+            </div>
+
+            <div class="admin-content">
+                <!-- Toolbar -->
+                <div class="media-toolbar">
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid" title="Grid Görünümü">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="Liste Görünümü">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    <div class="toolbar-filters">
+                        <select class="filter-select" id="mediaTypeFilter">
+                            <option>Tüm ortam ögeleri</option>
+                            <option>Görseller</option>
+                            <option>Videolar</option>
+                        </select>
+                        <select class="filter-select" id="dateFilter">
+                            <option>Tüm tarihler</option>
+                            <option>Bugün</option>
+                            <option>Bu Hafta</option>
+                            <option>Bu Ay</option>
+                        </select>
+                        <button class="filter-btn" id="bulkSelectBtn">Toplu seçim</button>
+                        <button class="filter-btn btn-danger-outline" id="bulkDeleteBtn" style="display: none; border-color: var(--danger-color); color: var(--danger-color); font-weight: 600;"><i class="fas fa-trash" style="margin-right: 6px;"></i>Seçilenleri Sil</button>
+                    </div>
+                    <div class="search-bar-inline">
+                        <input type="text" id="mediaSearch" placeholder="Ortam ara" class="search-input-inline">
+                        <button class="search-btn-inline">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <button class="btn btn-primary" id="addMediaBtn" style="margin-left: auto;">
+                        <i class="fas fa-plus"></i>
+                        Ortam dosyası ekle
+                    </button>
+                </div>
+
+                <!-- Media Grid -->
+                <div class="media-grid" id="mediaGrid">
+                    <div class="loading">Yükleniyor...</div>
+                </div>
+
+                <!-- Media Info -->
+                <div class="media-info">
+                    <span id="mediaCount">0 ortam ögesinden 0 tanesi görüntüleniyor</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ortam Dosyası Ekle</h2>
+                <button class="modal-close" id="closeUploadModal">&times;</button>
+            </div>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="mediaFile">Dosya Seç *</label>
+                        <input type="file" id="mediaFile" name="file" accept="image/*,video/*" required multiple>
+                        <p class="form-help">Birden fazla dosya seçebilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancelUploadBtn">İptal</button>
+                    <button type="submit" class="btn btn-primary">Yükle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Media Details Drawer -->
+    <div class="media-details-drawer" id="mediaDetailsDrawer">
+        <div class="drawer-header">
+            <h3>Ortam Dosyası Detayları</h3>
+            <button class="drawer-close-btn" id="closeDetailsDrawer">&times;</button>
+        </div>
+        <div class="drawer-body">
+            <div class="detail-preview" id="detailPreview"></div>
+            <div class="detail-info-group">
+                <label>Dosya Adı</label>
+                <div class="detail-value" id="detailFilename">—</div>
+            </div>
+            <div class="detail-info-group">
+                <label>Dosya Yolu</label>
+                <div class="detail-value" id="detailPath">—</div>
+            </div>
+            <div class="detail-info-group">
+                <label>Dosya Boyutu</label>
+                <div class="detail-value" id="detailSize">—</div>
+            </div>
+            <div class="detail-info-group">
+                <label>Yükleme Tarihi</label>
+                <div class="detail-value" id="detailDate">—</div>
+            </div>
+            <div class="detail-info-group">
+                <label>Kullanıldığı Yerler</label>
+                <div class="detail-value" id="detailUsage">Hesaplanıyor...</div>
+            </div>
+        </div>
+        <div class="drawer-footer">
+            <button class="btn btn-secondary" id="copyUrlBtn">
+                <i class="fas fa-copy"></i> URL Kopyala
+            </button>
+            <button class="btn btn-danger" id="deleteMediaBtn">
+                <i class="fas fa-trash"></i> Sil
+            </button>
+        </div>
+    </div>
+
+    <!-- Drag & Drop Fullscreen Overlay -->
+    <div class="drag-drop-overlay" id="dragDropOverlay">
+        <div class="overlay-content">
+            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+            <h2>Yüklemek için dosyaları buraya bırakın</h2>
+            <p>Görselleri ve videoları sürükleyip bırakarak hızlıca yükleyebilirsiniz</p>
+        </div>
+    </div>
+
+    <!-- Upload Progress Modal -->
+    <div class="progress-overlay" id="progressOverlay">
+        <div class="progress-card">
+            <h3>Dosyalar Yükleniyor</h3>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            </div>
+            <div class="progress-status" id="progressStatus">Hazırlanıyor...</div>
+        </div>
+    </div>
+
+    <script src="/js/admin-sidebar.js"></script>
+    <script src="/js/admin-sidebar-active.js"></script>
+    <script src="/js/admin-media.js"></script>
+</body>
+</html>
+

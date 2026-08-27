@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Detayı - QR Menü</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-icons">
+            <div class="header-icon">
+                <i class="fas fa-comment-alt"></i>
+            </div>
+        </div>
+        <div class="header-logo">
+            <img id="restaurantLogo" src="/images/logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none';">
+            <h1 class="restaurant-name" id="restaurantName">SOLANTE COFFEE</h1>
+        </div>
+        <div class="header-icons">
+            <div class="header-icon language-toggle" id="languageToggle">
+                <i class="fas fa-globe"></i>
+                <div class="language-dropdown" id="languageDropdown">
+                    <button class="lang-option" data-lang="tr">
+                        <span class="lang-flag">🇹🇷</span>
+                        <span class="lang-name">Türkçe</span>
+                    </button>
+                    <button class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ürün Detay -->
+    <main class="product-detail-page">
+        <div class="product-detail-header">
+            <button class="back-to-products-btn" onclick="window.history.back()" data-tr="Ürünlere Dön" data-en="Back to Products">
+                <i class="fas fa-arrow-left"></i> <span class="btn-text">Ürünlere Dön</span>
+            </button>
+            <h2 class="section-title" id="productDetailTitle" data-tr="Ürün Detayı" data-en="Product Detail">Ürün Detayı</h2>
+        </div>
+        <div class="product-detail-container" id="productDetail">
+            <div class="loading">Yükleniyor...</div>
+        </div>
+    </main>
+
+    <!-- Floating Butonlar -->
+    <button class="floating-btn back-btn" onclick="window.history.back()" aria-label="Geri">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+    <a href="#" class="floating-btn whatsapp-btn" id="whatsappBtn" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/product.js"></script>
+</body>
+</html>

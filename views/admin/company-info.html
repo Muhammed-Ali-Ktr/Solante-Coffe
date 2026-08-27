@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firma Bilgileri - Yönetim Paneli</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Top Header Bar -->
+    <header class="admin-top-header">
+        <div class="top-header-left">
+            <div class="admin-logo">
+                <span class="logo-text">ZİFT STUDİO</span>
+            </div>
+            <button class="view-products-btn" onclick="window.location.href='/yonetim/urunler'">
+                <i class="fas fa-gem"></i>
+                Ürünler görüntüle
+            </button>
+        </div>
+        <div class="top-header-right">
+            <button class="header-icon-btn" title="Ara">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="/yonetim/dashboard" class="header-icon-btn" title="Ana Sayfa">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="user-profile">
+                <span class="profile-letter">Y</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <!-- Ürünler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-box"></i>
+                        <span>Ürünler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/urunler" class="nav-item" id="nav-all-products">
+                            <i class="fas fa-box"></i>
+                            <span>Tüm Ürünler</span>
+                        </a>
+                        <a href="#" class="nav-item" id="sidebarAddProductBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Ürün ekle</span>
+                        </a>
+                        <a href="/yonetim/kategoriler" class="nav-item" id="nav-categories">
+                            <i class="fas fa-list"></i>
+                            <span>Ürün Kategorileri</span>
+                        </a>
+                        <a href="/yonetim/kategori-siralama" class="nav-item" id="nav-category-sort">
+                            <i class="fas fa-sort"></i>
+                            <span>Kategori Sıralama</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bannerlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-images"></i>
+                        <span>Bannerlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/bannerlar" class="nav-item" id="nav-all-banners">
+                            <i class="fas fa-images"></i>
+                            <span>Tüm Bannerlar</span>
+                        </a>
+                        <a href="/yonetim/bannerlar/ekle" class="nav-item" id="addBannerBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Banner ekle</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İçerikler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-folder"></i>
+                        <span>İçerikler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/media" class="nav-item" id="nav-media">
+                            <i class="fas fa-image"></i>
+                            <span>Medya Kütüphanesi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menü Ayarları -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-cog"></i>
+                        <span>Menü Ayarları</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/firma-bilgileri" class="nav-item" id="nav-company-info">
+                            <i class="fas fa-building"></i>
+                            <span>Firma Bilgileri</span>
+                        </a>
+                        <a href="/yonetim/tasarim-secenekleri" class="nav-item" id="nav-design-options">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Tasarım Seçenekleri</span>
+                        </a>
+                        <a href="/yonetim/tanitim-alanlari" class="nav-item" id="nav-promotions">
+                            <i class="fas fa-play"></i>
+                            <span>Tanıtım Alanları</span>
+                        </a>
+                        <a href="/yonetim/sosyal-medya" class="nav-item" id="nav-social-media">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Sosyal Medya</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mesajlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-comment"></i>
+                        <span>Mesajlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/mesajlar" class="nav-item" id="nav-messages">
+                            <i class="fas fa-comments"></i>
+                            <span>Mesajlar</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content-header">
+                <h1 class="page-title">Firma Bilgileri</h1>
+            </div>
+
+            <div class="admin-content">
+                <div class="settings-layout">
+                    <!-- Left: Form -->
+                    <div class="settings-form">
+                        <div class="settings-section">
+                            <div class="section-header">
+                                <h2>Firma Bilgileri</h2>
+                                <button class="section-toggle">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+
+                            <div class="section-content">
+                                <!-- Firma Logosu -->
+                                <div class="form-group">
+                                    <label for="companyLogo">Firma Logosu *</label>
+                                    <p class="form-help">Firma logonuzu bu alana yükleyiniz.</p>
+                                    <div class="image-upload-area" id="logoUploadArea">
+                                        <input type="file" id="companyLogo" name="logo" accept="image/*" style="display: none;">
+                                        <div class="upload-preview" id="logoPreview">
+                                            <i class="fas fa-image"></i>
+                                            <p>Logo yüklemek için tıklayın</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Firma Simgesi -->
+                                <div class="form-group">
+                                    <label for="companyIcon">Firma Simgesi *</label>
+                                    <p class="form-help">Firma ikonunuzu bu alana yükleyiniz. Yükleyeceğiniz görsel kare ve png formatında olmalıdır.</p>
+                                    <div class="image-upload-area icon-upload" id="iconUploadArea">
+                                        <input type="file" id="companyIcon" name="icon" accept="image/png" style="display: none;">
+                                        <div class="upload-preview" id="iconPreview">
+                                            <i class="fas fa-image"></i>
+                                            <p>İkon yüklemek için tıklayın</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Firma Adı -->
+                                <div class="form-group">
+                                    <label for="companyName">Firma Adı *</label>
+                                    <p class="form-help">Firmanızın adını bu alana yazınız.</p>
+                                    <input type="text" id="companyName" name="company_name" required>
+                                </div>
+
+                                <!-- Slogan -->
+                                <div class="form-group">
+                                    <label for="companySlogan">Slogan *</label>
+                                    <input type="text" id="companySlogan" name="slogan">
+                                </div>
+
+                                <!-- Yönetim Paneli Marka Yazısı -->
+                                <div class="form-group">
+                                    <label for="adminBrandText">Yönetim Paneli Sol Üst Marka Yazısı</label>
+                                    <p class="form-help">Sol üstte görünen marka metnini özelleştirin (örn: CAFE AROMA PANEL).</p>
+                                    <input type="text" id="adminBrandText" name="admin_brand_text" placeholder="ZİFT STUDİO">
+                                </div>
+
+                                <!-- Wi-Fi Ağ Adı -->
+                                <div class="form-group">
+                                    <label for="wifiName"><i class="fas fa-wifi" style="margin-right: 6px; color: var(--primary-color);"></i>Wi-Fi Ağ Adı (SSID)</label>
+                                    <p class="form-help">Sitede sol üst 3 çizgide İşletme Bilgileri bölümünde görünecek Wi-Fi ağ adı.</p>
+                                    <input type="text" id="wifiName" name="wifi_name" placeholder="Örn: Organica 6G">
+                                </div>
+
+                                <!-- Wi-Fi Şifresi -->
+                                <div class="form-group">
+                                    <label for="wifiPassword"><i class="fas fa-key" style="margin-right: 6px; color: var(--primary-color);"></i>Wi-Fi Şifresi</label>
+                                    <p class="form-help">Müşterilerin bağlanması için gösterilecek Wi-Fi şifresi.</p>
+                                    <input type="text" id="wifiPassword" name="wifi_password" placeholder="Örn: 147258369CafeAroma2030">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: QR Code Panel (Sadece Firma Bilgileri Sayfasında) -->
+                    <div class="qr-code-panel">
+                        <h3><i class="fas fa-qrcode" style="margin-right: 8px; color: var(--primary-color);"></i>QR Kodunuz</h3>
+                        <p class="qr-description">Menü URL'inizi girin. QR kodunuz girdiğiniz URL'ye göre otomatik oluşturulacaktır:</p>
+                        
+                        <!-- URL Input -->
+                        <div class="form-group">
+                            <label for="menuUrl">
+                                <i class="fas fa-link"></i>
+                                Menü URL'i
+                            </label>
+                            <div class="qr-url-field">
+                                <input type="text" id="menuUrl" placeholder="http://localhost:3000" value="http://localhost:3000" oninput="handleMenuUrlInput(this.value)">
+                            </div>
+                        </div>
+
+                        <!-- QR Code Container -->
+                        <div class="qr-code-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #ffffff; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 16px; margin: 12px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                            <div id="qrCanvasContainer" style="background: white; padding: 8px; border-radius: 8px;">
+                                <canvas id="qrCodeCanvas" style="max-width: 200px; height: auto; border-radius: 6px; display: none;"></canvas>
+                                <img id="qrCodeImagePreview" src="" alt="QR Kod" style="display: none; max-width: 200px; height: auto; border-radius: 6px;">
+                            </div>
+                            
+                            <!-- Display Target URL -->
+                            <div style="margin-top: 10px; text-align: center;">
+                                <span style="font-size: 11px; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 2px;">Hedef Menü Bağlantısı</span>
+                                <strong id="qrUrlDisplay" style="color: #0F172A; font-size: 13px; word-break: break-all;">http://localhost:3000</strong>
+                            </div>
+                        </div>
+
+                        <!-- Specific QR Code Buttons -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px;">
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="copyMenuUrl()" id="copyQRBtn" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                <i class="fas fa-copy"></i> Kopyala
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="shareQRCode()" id="shareQRBtn" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                <i class="fas fa-share-alt"></i> Paylaş
+                            </button>
+                        </div>
+
+                        <button type="button" class="btn btn-danger btn-sm" onclick="removeQRCodeImage()" id="removeQRBtn" style="width: 100%; margin-bottom: 14px; background: rgba(239, 68, 68, 0.12); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.25); display: none;">
+                            <i class="fas fa-trash-alt" style="margin-right: 6px;"></i> QR Kodu Sil
+                        </button>
+
+                        <button class="btn btn-primary btn-block" onclick="updateSettings()">
+                            <i class="fas fa-sync"></i>
+                            Firma Bilgilerini Güncelle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/qrious.min.js"></script>
+    <script src="/js/admin-sidebar.js"></script>
+    <script src="/js/admin-sidebar-active.js"></script>
+    <script src="/js/admin-company-info.js"></script>
+</body>
+</html>
