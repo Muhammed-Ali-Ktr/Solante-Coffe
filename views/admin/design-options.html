@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasarım Seçenekleri - Yönetim Paneli</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Top Header Bar -->
+    <header class="admin-top-header">
+        <div class="top-header-left">
+            <div class="admin-logo">
+                <span class="logo-text">ZİFT STUDİO</span>
+            </div>
+            <button class="view-products-btn" onclick="window.location.href='/yonetim/urunler'">
+                <i class="fas fa-gem"></i>
+                Ürünler görüntüle
+            </button>
+        </div>
+        <div class="top-header-right">
+            <button class="header-icon-btn" title="Ara">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="/yonetim/dashboard" class="header-icon-btn" title="Ana Sayfa">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="user-profile">
+                <span class="profile-letter">Y</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <!-- Ürünler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-box"></i>
+                        <span>Ürünler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/urunler" class="nav-item" id="nav-all-products">
+                            <i class="fas fa-box"></i>
+                            <span>Tüm Ürünler</span>
+                        </a>
+                        <a href="#" class="nav-item" id="sidebarAddProductBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Ürün ekle</span>
+                        </a>
+                        <a href="/yonetim/kategoriler" class="nav-item" id="nav-categories">
+                            <i class="fas fa-list"></i>
+                            <span>Ürün Kategorileri</span>
+                        </a>
+                        <a href="/yonetim/kategori-siralama" class="nav-item" id="nav-category-sort">
+                            <i class="fas fa-sort"></i>
+                            <span>Kategori Sıralama</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bannerlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-images"></i>
+                        <span>Bannerlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/bannerlar" class="nav-item" id="nav-all-banners">
+                            <i class="fas fa-images"></i>
+                            <span>Tüm Bannerlar</span>
+                        </a>
+                        <a href="/yonetim/bannerlar/ekle" class="nav-item" id="addBannerBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Banner ekle</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İçerikler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-folder"></i>
+                        <span>İçerikler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/media" class="nav-item" id="nav-media">
+                            <i class="fas fa-image"></i>
+                            <span>Medya Kütüphanesi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menü Ayarları -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-cog"></i>
+                        <span>Menü Ayarları</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/firma-bilgileri" class="nav-item" id="nav-company-info">
+                            <i class="fas fa-building"></i>
+                            <span>Firma Bilgileri</span>
+                        </a>
+                        <a href="/yonetim/tasarim-secenekleri" class="nav-item" id="nav-design-options">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Tasarım Seçenekleri</span>
+                        </a>
+                        <a href="/yonetim/tanitim-alanlari" class="nav-item" id="nav-promotions">
+                            <i class="fas fa-play"></i>
+                            <span>Tanıtım Alanları</span>
+                        </a>
+                        <a href="/yonetim/sosyal-medya" class="nav-item" id="nav-social-media">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Sosyal Medya</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mesajlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-comment"></i>
+                        <span>Mesajlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/mesajlar" class="nav-item" id="nav-messages">
+                            <i class="fas fa-comments"></i>
+                            <span>Mesajlar</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content-header">
+                <h1 class="page-title">Tasarım Seçenekleri</h1>
+            </div>
+
+            <div class="admin-content">
+                <div class="settings-layout">
+                    <!-- Left: Form -->
+                    <div class="settings-form">
+                        <div class="settings-section">
+                            <div class="section-header">
+                                <h2>Tasarım Seçenekleri</h2>
+                            </div>
+
+                            <div class="section-content">
+                                <!-- Ana Renk -->
+                                <div class="form-group">
+                                    <label for="primaryColor">Ana Renk *</label>
+                                    <p class="form-help">Sitenizin ana renk tonunu seçiniz. (Sitenin genel yapısını oluşturan renk bu alanda belirlenir.)</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="primaryColor" name="primary_color" value="#d8a200">
+                                        <input type="text" class="color-text-input" id="primaryColorText" value="#d8a200" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Üzerine Gelme Rengi -->
+                                <div class="form-group">
+                                    <label for="hoverColor">Üzerine Gelme Rengi *</label>
+                                    <p class="form-help">Sitenizin ara renk tonunu seçiniz. (Buton ve diğer etkileşimli alanlarda üzerine geldiğinizde oluşan koyu renktir.)</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="hoverColor" name="hover_color" value="#a80075">
+                                        <input type="text" class="color-text-input" id="hoverColorText" value="#a80075" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Başlık Rengi -->
+                                <div class="form-group">
+                                    <label for="headerColor">Başlık Rengi *</label>
+                                    <p class="form-help">Site dahilinde bulunan ana başlıkların rengidir.</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="headerColor" name="header_color" value="#ee2">
+                                        <input type="text" class="color-text-input" id="headerColorText" value="#ee2" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Geri Butonu -->
+                                <div class="form-group">
+                                    <label>Geri Butonu *</label>
+                                    <p class="form-help">Sitenin sol alt köşesine bir önceki sayfaya dönülmesini sağlayan bir geri butonu yerleştirilsin mi?</p>
+                                    <div class="toggle-buttons">
+                                        <button type="button" class="toggle-btn active" data-value="1">Evet</button>
+                                        <button type="button" class="toggle-btn" data-value="0">Hayır</button>
+                                    </div>
+                                    <input type="hidden" id="backButtonEnabled" name="back_button_enabled" value="1">
+                                </div>
+
+                                <!-- Masaüstü Logo Genişliği -->
+                                <div class="form-group">
+                                    <label for="desktopLogoWidth">Masaüstü Logo Genişliği *</label>
+                                    <p class="form-help">Lütfen masasüstü sürümü için uygun gördüğünüz logo genişliğini PX cinsinden yazınız.</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="desktopLogoWidth" name="desktop_logo_width" value="190" min="50" max="500">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tablet Logo Genişliği -->
+                                <div class="form-group">
+                                    <label for="tabletLogoWidth">Tablet Logo Genişliği *</label>
+                                    <p class="form-help">Lütfen tablet sürümü için uygun gördüğünüz logo genişliğini PX cinsinden yazınız.</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="tabletLogoWidth" name="tablet_logo_width" value="170" min="50" max="500">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Mobil Logo Genişliği -->
+                                <div class="form-group">
+                                    <label for="mobileLogoWidth">Mobil Logo Genişliği *</label>
+                                    <p class="form-help">Lütfen mobil sürümü için uygun gördüğünüz logo genişliğini PX cinsinden yazınız.</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="mobileLogoWidth" name="mobile_logo_width" value="150" min="50" max="500">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Menü Arkaplan Rengi -->
+                                <div class="form-group">
+                                    <label for="menuBackgroundColor">Menü Arkaplan Rengi</label>
+                                    <p class="form-help">Yeni menü tasarımındaki genel arkaplan rengini belirler.</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="menuBackgroundColor" name="menu_background_color" value="#F5F0F8">
+                                        <input type="text" class="color-text-input" id="menuBackgroundColorText" value="#F5F0F8" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Metin Rengi -->
+                                <div class="form-group">
+                                    <label for="textColor">Metin Rengi</label>
+                                    <p class="form-help">Menüde kullanılan ana metin rengi.</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="textColor" name="text_color" value="#1A1A2E">
+                                        <input type="text" class="color-text-input" id="textColorText" value="#1A1A2E" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Köşe Yuvarlaklığı -->
+                                <div class="form-group">
+                                    <label for="borderRadius">Köşe Yuvarlaklığı</label>
+                                    <p class="form-help">Kartların köşe yuvarlaklığı (px).</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="borderRadius" name="border_radius" value="16" min="0" max="40">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Bölüm Aralığı -->
+                                <div class="form-group">
+                                    <label for="sectionSpacing">Bölüm Aralığı</label>
+                                    <p class="form-help">Yeni menüde bölüm boşlukları (px).</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="sectionSpacing" name="section_spacing" value="20" min="0" max="60">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Yazı Tipi -->
+                                <div class="form-group">
+                                    <label for="fontFamily">Yazı Tipi</label>
+                                    <p class="form-help">Yeni menü arayüzünde kullanılacak font ailesi.</p>
+                                    <select id="fontFamily" name="font_family" class="form-control">
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content-header">
+                <h1 class="page-title">Tasarım Seçenekleri</h1>
+            </div>
+
+            <div class="admin-content">
+                <div class="settings-layout">
+                    <!-- Left: Form -->
+                    <div class="settings-form">
+                        <div class="settings-section">
+                            <div class="section-header">
+                                <h2>Tasarım Seçenekleri</h2>
+                            </div>
+
+                            <div class="section-content">
+                                <!-- Ana Renk -->
+                                <div class="form-group">
+                                    <label for="primaryColor">Ana Renk *</label>
+                                    <p class="form-help">Sitenizin ana renk tonunu seçiniz. (Sitenin genel yapısını oluşturan renk bu alanda belirlenir.)</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="primaryColor" name="primary_color" value="#d8a200">
+                                        <input type="text" class="color-text-input" id="primaryColorText" value="#d8a200" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Üzerine Gelme Rengi -->
+                                <div class="form-group">
+                                    <label for="hoverColor">Üzerine Gelme Rengi *</label>
+                                    <p class="form-help">Sitenizin ara renk tonunu seçiniz. (Buton ve diğer etkileşimli alanlarda üzerine geldiğinizde oluşan koyu renktir.)</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="hoverColor" name="hover_color" value="#a80075">
+                                        <input type="text" class="color-text-input" id="hoverColorText" value="#a80075" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Başlık Rengi -->
+                                <div class="form-group">
+                                    <label for="headerColor">Başlık Rengi *</label>
+                                    <p class="form-help">Site dahilinde bulunan ana başlıkların rengidir.</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="headerColor" name="header_color" value="#ee2">
+                                        <input type="text" class="color-text-input" id="headerColorText" value="#ee2" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Geri Butonu -->
+                                <div class="form-group">
+                                    <label>Geri Butonu *</label>
+                                    <p class="form-help">Sitenin sol alt köşesine bir önceki sayfaya dönülmesini sağlayan bir geri butonu yerleştirilsin mi?</p>
+                                    <div class="toggle-buttons">
+                                        <button type="button" class="toggle-btn active" data-value="1">Evet</button>
+                                        <button type="button" class="toggle-btn" data-value="0">Hayır</button>
+                                    </div>
+                                    <input type="hidden" id="backButtonEnabled" name="back_button_enabled" value="1">
+                                </div>
+
+                                <!-- Masaüstü Logo Genişliği -->
+                                <div class="form-group">
+                                    <label for="desktopLogoWidth">Masaüstü Logo Genişliği *</label>
+                                    <p class="form-help">Lütfen masasüstü sürümü için uygun gördüğünüz logo genişliğini PX cinsinden yazınız.</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="desktopLogoWidth" name="desktop_logo_width" value="190" min="50" max="500">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tablet Logo Genişliği -->
+                                <div class="form-group">
+                                    <label for="tabletLogoWidth">Tablet Logo Genişliği *</label>
+                                    <p class="form-help">Lütfen tablet sürümü için uygun gördüğünüz logo genişliğini PX cinsinden yazınız.</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="tabletLogoWidth" name="tablet_logo_width" value="170" min="50" max="500">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Mobil Logo Genişliği -->
+                                <div class="form-group">
+                                    <label for="mobileLogoWidth">Mobil Logo Genişliği *</label>
+                                    <p class="form-help">Lütfen mobil sürümü için uygun gördüğünüz logo genişliğini PX cinsinden yazınız.</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="mobileLogoWidth" name="mobile_logo_width" value="150" min="50" max="500">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Menü Arkaplan Rengi -->
+                                <div class="form-group">
+                                    <label for="menuBackgroundColor">Menü Arkaplan Rengi</label>
+                                    <p class="form-help">Yeni menü tasarımındaki genel arkaplan rengini belirler.</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="menuBackgroundColor" name="menu_background_color" value="#F5F0F8">
+                                        <input type="text" class="color-text-input" id="menuBackgroundColorText" value="#F5F0F8" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Metin Rengi -->
+                                <div class="form-group">
+                                    <label for="textColor">Metin Rengi</label>
+                                    <p class="form-help">Menüde kullanılan ana metin rengi.</p>
+                                    <div class="color-input-wrapper">
+                                        <input type="color" id="textColor" name="text_color" value="#1A1A2E">
+                                        <input type="text" class="color-text-input" id="textColorText" value="#1A1A2E" placeholder="Renk seçin">
+                                    </div>
+                                </div>
+
+                                <!-- Köşe Yuvarlaklığı -->
+                                <div class="form-group">
+                                    <label for="borderRadius">Köşe Yuvarlaklığı</label>
+                                    <p class="form-help">Kartların köşe yuvarlaklığı (px).</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="borderRadius" name="border_radius" value="16" min="0" max="40">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Bölüm Aralığı -->
+                                <div class="form-group">
+                                    <label for="sectionSpacing">Bölüm Aralığı</label>
+                                    <p class="form-help">Yeni menüde bölüm boşlukları (px).</p>
+                                    <div class="input-with-unit">
+                                        <input type="number" id="sectionSpacing" name="section_spacing" value="20" min="0" max="60">
+                                        <span class="input-unit">PX</span>
+                                    </div>
+                                </div>
+
+                                <!-- Yazı Tipi -->
+                                <div class="form-group">
+                                    <label for="fontFamily">Yazı Tipi</label>
+                                    <p class="form-help">Yeni menü arayüzünde kullanılacak font ailesi.</p>
+                                    <select id="fontFamily" name="font_family" class="form-control">
+                                        <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">System UI</option>
+                                        <option value="'Outfit', sans-serif">Outfit</option>
+                                        <option value="'Inter', sans-serif">Inter</option>
+                                        <option value="'Poppins', sans-serif">Poppins</option>
+                                        <option value="'Montserrat', sans-serif">Montserrat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-top: 20px;">
+                                    <button type="button" class="btn btn-primary btn-block" onclick="updateDesignSettings()">
+                                        <i class="fas fa-sync"></i>
+                                        Tasarım Ayarlarını Güncelle
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin-sidebar.js"></script>
+    <script src="/js/admin-sidebar-active.js"></script>
+    <script src="/js/admin-design-options.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanıtım Alanları - Yönetim Paneli</title>
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Top Header Bar -->
+    <header class="admin-top-header">
+        <div class="top-header-left">
+            <div class="admin-logo">
+                <span class="logo-text">ZİFT STUDİO</span>
+            </div>
+            <button class="view-products-btn" onclick="window.location.href='/yonetim/urunler'">
+                <i class="fas fa-gem"></i>
+                Ürünler görüntüle
+            </button>
+        </div>
+        <div class="top-header-right">
+            <button class="header-icon-btn" title="Ara">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="/yonetim/dashboard" class="header-icon-btn" title="Ana Sayfa">
+                <i class="fas fa-home"></i>
+            </a>
+            <div class="user-profile">
+                <span class="profile-letter">Y</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <!-- Ürünler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-box"></i>
+                        <span>Ürünler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/urunler" class="nav-item" id="nav-all-products">
+                            <i class="fas fa-box"></i>
+                            <span>Tüm Ürünler</span>
+                        </a>
+                        <a href="#" class="nav-item" id="sidebarAddProductBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Ürün ekle</span>
+                        </a>
+                        <a href="/yonetim/kategoriler" class="nav-item" id="nav-categories">
+                            <i class="fas fa-list"></i>
+                            <span>Ürün Kategorileri</span>
+                        </a>
+                        <a href="/yonetim/kategori-siralama" class="nav-item" id="nav-category-sort">
+                            <i class="fas fa-sort"></i>
+                            <span>Kategori Sıralama</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bannerlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-images"></i>
+                        <span>Bannerlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/bannerlar" class="nav-item" id="nav-all-banners">
+                            <i class="fas fa-images"></i>
+                            <span>Tüm Bannerlar</span>
+                        </a>
+                        <a href="/yonetim/bannerlar/ekle" class="nav-item" id="addBannerBtn">
+                            <i class="fas fa-plus"></i>
+                            <span>Yeni Banner ekle</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İçerikler -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-folder"></i>
+                        <span>İçerikler</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/media" class="nav-item" id="nav-media">
+                            <i class="fas fa-image"></i>
+                            <span>Medya Kütüphanesi</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Menü Ayarları -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-cog"></i>
+                        <span>Menü Ayarları</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/firma-bilgileri" class="nav-item" id="nav-company-info">
+                            <i class="fas fa-building"></i>
+                            <span>Firma Bilgileri</span>
+                        </a>
+                        <a href="/yonetim/tasarim-secenekleri" class="nav-item" id="nav-design-options">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Tasarım Seçenekleri</span>
+                        </a>
+                        <a href="/yonetim/tanitim-alanlari" class="nav-item" id="nav-promotions">
+                            <i class="fas fa-play"></i>
+                            <span>Tanıtım Alanları</span>
+                        </a>
+                        <a href="/yonetim/sosyal-medya" class="nav-item" id="nav-social-media">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Sosyal Medya</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mesajlar -->
+                <div class="nav-section">
+                    <div class="nav-section-title">
+                        <i class="fas fa-comment"></i>
+                        <span>Mesajlar</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="/yonetim/mesajlar" class="nav-item" id="nav-messages">
+                            <i class="fas fa-comments"></i>
+                            <span>Mesajlar</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-content-header">
+                <h1 class="page-title">Tanıtım Alanları</h1>
+            </div>
+
+            <div class="admin-content">
+                <div class="settings-layout">
+                    <!-- Left: Form -->
+                    <div class="settings-form">
+                        <div class="settings-section">
+                            <div class="section-header">
+                                <h2>Tanıtım Alanları</h2>
+                            </div>
+
+                            <div class="section-content">
+                                <!-- Şefin Önerileri Başlığı -->
+                                <div class="form-group">
+                                    <label for="chefPicksTitleTr">Şefin Önerileri Başlığı *</label>
+                                    <input type="text" id="chefPicksTitleTr" name="chef_picks_title_tr" value="Şefin Önerileri" required>
+                                </div>
+
+                                <!-- İngilizce Şefin Önerileri Başlığı -->
+                                <div class="form-group">
+                                    <label for="chefPicksTitleEn">İngilizce Şefin Önerileri Başlığı *</label>
+                                    <input type="text" id="chefPicksTitleEn" name="chef_picks_title_en" value="Chef's Picks" required>
+                                </div>
+
+                                <!-- Şefin Önerileri — kategori bazlı -->
+                                <div class="form-group">
+                                    <label>Şefin Önerileri (Kategori Bazlı)</label>
+                                    <p class="form-help">Ana menüde her kategori için en fazla bir ürünü şefin önerisi olarak gösterebilirsiniz. Boş bırakılan kategorilerde öneri görünmez.</p>
+                                    <div id="categoryChefPicksList" class="category-chef-picks-list"></div>
+                                    <div class="product-selector" hidden>
+                                        <div class="product-search">
+                                            <input type="text" id="productSearch" placeholder="Ara..." class="search-input" style="width: 100%; padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                        </div>
+                                        
+                                        <div class="product-selector-layout">
+                                            <!-- Available Products -->
+                                            <div class="available-products">
+                                                <h4>Mevcut Ürünler</h4>
+                                                <div class="product-list" id="availableProductsList">
+                                                    <!-- Products will be loaded here -->
+                                                </div>
+                                            </div>
+
+                                            <!-- Selected Products -->
+                                            <div class="selected-products">
+                                                <h4>Seçili Ürünler</h4>
+                                                <div class="product-list" id="selectedProductsList">
+                                                    <!-- Selected products will be shown here -->
+                                                </div>
+                                                <div class="sort-controls">
+                                                    <button type="button" class="sort-btn" onclick="moveProductUp()" title="Yukarı">
+                                                        <i class="fas fa-arrow-up"></i>
+                                                    </button>
+                                                    <button type="button" class="sort-btn" onclick="moveProductDown()" title="Aşağı">
+                                                        <i class="fas fa-arrow-down"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                <div class="form-group" style="margin-top: 20px;">
+                                    <button type="button" class="btn btn-primary btn-block" onclick="updatePromotions()">
+                                        <i class="fas fa-sync"></i>
+                                        Şefin Önerilerini Güncelle
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin-sidebar.js"></script>
+    <script src="/js/admin-sidebar-active.js"></script>
+    <script src="/js/admin-promotions.js"></script>
+</body>
+</html>
+

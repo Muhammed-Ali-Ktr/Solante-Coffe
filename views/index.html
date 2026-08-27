@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#1A1A1A">
+<title id="pageTitle">SOLANTE COFFEE - QR Menü</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/css/menu.css">
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- SIDE DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="side-drawer" id="sideDrawer" aria-hidden="true">
+  <div class="drawer-header">
+    <span class="drawer-title" data-tr="İşletme Bilgileri" data-en="Store Info">İşletme Bilgileri</span>
+    <button type="button" class="drawer-close" id="drawerCloseBtn" aria-label="Kapat">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-solante-info">
+      <h3>SOLANTE COFFEE</h3>
+      <p class="drawer-info-line">📍 Sahibiata, Karahafızlar Sk. No:4, 42040 Karatay/Konya</p>
+      <p class="drawer-info-line">🧭 Plus Code: VFCW+2H Meram, Konya</p>
+      <p class="drawer-info-line">📞 <a href="tel:05074205790" style="color:var(--accent);font-weight:600;text-decoration:none;">0507 420 57 90</a></p>
+      <p class="drawer-info-line">⭐ 4.6 (267 Değerlendirme) | ₺200–400</p>
+    </div>
+
+    <!-- Sosyal Medya Bağlantıları -->
+    <div class="drawer-social" id="drawerSocial" style="display:none; margin-top: 14px;">
+      <div class="drawer-section-title" data-tr="Sosyal Medya" data-en="Social Media">Sosyal Medya</div>
+      <div class="drawer-social-grid" id="drawerSocialGrid"></div>
+    </div>
+
+    <button type="button" class="drawer-item" id="drawerAllergenBtn" style="margin-top: 12px;">
+      <span class="drawer-item-icon">🏷️</span>
+      <span data-tr="Alerjen Rehberi" data-en="Allergen Guide">Alerjen Rehberi</span>
+    </button>
+
+    <div class="drawer-wifi" id="drawerWifi" style="display:none; margin-top: 12px;">
+      <div class="drawer-wifi-title" data-tr="Wi-Fi Bilgileri" data-en="Wi-Fi Info">Wi-Fi Bilgileri</div>
+      <div class="drawer-wifi-row"><span data-tr="Ağ" data-en="Network">Ağ</span><strong id="drawerWifiName">—</strong></div>
+      <div class="drawer-wifi-row"><span data-tr="Şifre" data-en="Password">Şifre</span><strong id="drawerWifiPass">—</strong></div>
+    </div>
+
+    <!-- Mesaj Bırak Butonu -->
+    <button type="button" class="drawer-item" id="drawerMessageBtn" style="margin-top: 8px;">
+      <span class="drawer-item-icon">💬</span>
+      <span data-tr="Mesaj Bırak" data-en="Leave Message">Mesaj Bırak</span>
+    </button>
+    <p class="drawer-slogan" id="drawerSlogan">Focaccia Sandviçler & Nitelikli Kahve Çeşitleri</p>
+  </div>
+</aside>
+
+<!-- ALLERGEN MODAL -->
+<div class="modal-overlay" id="allergenModal">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <button type="button" class="modal-close" id="allergenModalClose" aria-label="Kapat">✕</button>
+    <p class="modal-title" data-tr="Alerjen Rehberi" data-en="Allergen Guide">Alerjen Rehberi</p>
+    <p class="modal-intro" data-tr="Ürünlerimizde kullanılan alerjenler aşağıda belirtilmiştir. Her ürünün detay sayfasında alerjen bilgisi ayrıca gösterilmektedir." data-en="Common allergens are listed below. Each product detail page also shows allergen information.">
+      Ürünlerimizde kullanılan alerjenler aşağıda belirtilmiştir. Her ürünün detay sayfasında alerjen bilgisi ayrıca gösterilmektedir.
+    </p>
+    <div class="allergen-full-grid" id="allergenFullGrid"></div>
+  </div>
+</div>
+
+<!-- GENERAL MESSAGE MODAL -->
+<div class="modal-overlay" id="generalMessageModal">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <button type="button" class="modal-close" id="generalMessageModalClose" aria-label="Kapat">✕</button>
+    <p class="modal-title" data-tr="Bizimle İletişime Geçin" data-en="Contact Us">Bizimle İletişime Geçin</p>
+    <form id="generalMessageForm" class="product-message-form">
+      <div class="form-row">
+        <input type="text" id="genMsgName" placeholder="Adınız Soyadınız" required class="msg-input">
+        <input type="email" id="genMsgEmail" placeholder="E-Posta Adresiniz (Opsiyonel)" class="msg-input">
+      </div>
+      <div class="form-row">
+        <input type="tel" id="genMsgPhone" placeholder="Telefon Numarası (Opsiyonel)" class="msg-input">
+        <input type="text" id="genMsgSubject" placeholder="Konu (Opsiyonel)" class="msg-input">
+      </div>
+      <textarea id="genMsgMessage" placeholder="Notunuz / Mesajınız" required class="msg-textarea"></textarea>
+      <button type="submit" class="msg-submit-btn" data-tr="Mesajı Gönder" data-en="Send Message">Mesajı Gönder</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== PAGE: MENU ===== -->
+<div class="page active" id="page-menu">
+
+  <!-- Hero Section -->
+  <section class="menu-hero" id="menuHero">
+    <img class="hero-bg-img" id="heroBgImg" src="" alt="" style="display:none;">
+    <div class="hero-overlay"></div>
+    <div class="hero-topbar">
+      <button type="button" class="hero-icon-btn" id="menuToggleBtn" aria-label="Menü">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="hero-actions">
+        <button type="button" class="lang-btn" id="langToggleBtn" aria-label="Dil">
+          <span class="lang-flag" id="langFlag">TR</span>
+          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hero-brand">
+      <div class="logo-wrapper" id="heroLogoWrapper" style="display:none;">
+        <img id="heroLogo" src="" alt="SOLANTE COFFEE Logo" class="hero-logo" onerror="this.style.display='none';">
+      </div>
+      <h1 class="hero-title" id="heroRestaurantName">SOLANTE COFFEE</h1>
+      <p class="hero-subtitle">Focaccia Sandviçler & Nitelikli Kahve</p>
+    </div>
+  </section>
+
+  <!-- Solante Corporate Info Card -->
+  <div class="solante-info-card">
+    <div class="solante-badge-row">
+      <span class="solante-rating-badge">⭐ 4.6 (267 Değerlendirme)</span>
+      <span class="solante-price-badge">₺200–400</span>
+    </div>
+    <div class="solante-detail-row">
+      <div class="solante-info-item">
+        <span class="solante-info-icon">📍</span>
+        <div class="solante-info-text">
+          <strong>Sahibiata, Karahafızlar Sk. No:4, 42040 Karatay/Konya</strong>
+          <small>Plus Code: VFCW+2H Meram, Konya</small>
+        </div>
+      </div>
+      <div class="solante-info-item">
+        <span class="solante-info-icon">📞</span>
+        <div class="solante-info-text">
+          <a href="tel:05074205790" class="solante-phone-link">0507 420 57 90</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="status-bar" id="statusBar">
+    <span id="statusBarText" data-tr="Açık" data-en="Open">Açık</span>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="category-tabs" id="quickNav"></div>
+
+  <!-- Search -->
+  <div class="search-section">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" autocomplete="off" placeholder="Arayın..">
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="categories-container" id="categoriesContainer">
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+    <div class="skeleton skeleton-card"></div>
+  </div>
+</div>
+
+<!-- ===== PAGE: DETAIL ===== -->
+<div class="page" id="page-detail">
+  <button type="button" class="detail-back" id="detailBackBtn" aria-label="Geri">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </button>
+  <div id="detailContent"></div>
+</div>
+
+<div id="menuFooter" style="display:none;"></div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

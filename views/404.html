@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sayfa Bulunamadı - 404</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #C3424E;
+      --text-color: #1e293b;
+      --text-light: #64748b;
+      --bg-color: #F8FAFC;
+      --radius: 16px;
+      --font: 'Outfit', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .error-container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .four_zero_four_bg {
+      background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+      height: 350px;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .four_zero_four_bg h1 {
+      font-size: 80px;
+      font-weight: 800;
+      color: var(--primary-color);
+      position: absolute;
+      width: 100%;
+      top: 10px;
+      left: 0;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .contant_box_404 h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-color);
+    }
+
+    .contant_box_404 p {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .link_404 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      background-color: var(--primary-color);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(195, 66, 78, 0.2);
+    }
+
+    .link_404:hover {
+      background-color: #a9333e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(195, 66, 78, 0.35);
+    }
+
+    .link_404:active {
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .error-container {
+        padding: 24px 16px;
+      }
+      .four_zero_four_bg {
+        height: 250px;
+        background-size: contain;
+      }
+      .four_zero_four_bg h1 {
+        font-size: 60px;
+      }
+      .contant_box_404 h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="error-container">
+    <div class="four_zero_four_bg">
+      <h1>404</h1>
+    </div>
+    
+    <div class="contant_box_404">
+      <h2>Kaybolmuş gibi görünüyorsun</h2>
+      <p>Aradığınız sayfa mevcut değil veya taşınmış olabilir.</p>
+      
+      <a href="/" class="link_404" id="homeLink">Ana Sayfaya Dön</a>
+    </div>
+  </div>
+
+  <script>
+    // Dynamically adjust theme based on restaurant design settings
+    const adjustColor = (hex, amount) => {
+      const h = (hex || '#C3424E').replace('#', '');
+      const num = parseInt(h, 16);
+      const r = Math.min(255, Math.max(0, (num >> 16) + amount));
+      const g = Math.min(255, Math.max(0, ((num >> 8) & 0xff) + amount));
+      const b = Math.min(255, Math.max(0, (num & 0xff) + amount));
+      return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+    };
+
+    const fetchTheme = async () => {
+      try {
+        const response = await fetch('/api/design-settings');
+        if (response.ok) {
+          const s = await response.json();
+          if (s.primary_color) {
+            document.documentElement.style.setProperty('--primary-color', s.primary_color);
+            const homeLink = document.getElementById('homeLink');
+            if (homeLink) {
+              homeLink.style.backgroundColor = s.primary_color;
+              homeLink.style.boxShadow = `0 4px 12px ${s.primary_color}33`; // Alpha shadow
+              
+              const hoverColor = adjustColor(s.primary_color, -20);
+              homeLink.addEventListener('mouseenter', () => {
+                homeLink.style.backgroundColor = hoverColor;
+              });
+              homeLink.addEventListener('mouseleave', () => {
+                homeLink.style.backgroundColor = s.primary_color;
+              });
+            }
+          }
+          if (s.font_family) {
+            document.body.style.fontFamily = s.font_family;
+          }
+        }
+      } catch (e) {
+        console.warn('Could not fetch theme settings:', e);
+      }
+    };
+    fetchTheme();
+  </script>
+</body>
+</html>
